@@ -1,0 +1,23 @@
+#Class Directed Learning 01
+#
+# Generalization rule: No matter what numbe we will start with, eventually the cycle will get to one of the numbers(4,16,37,58,89,145,20).
+# After that the cycle will stack in the circle 4 -> 16 -> 37 -> 58 -> 89 -> 145 -> 20 -> 4 
+
+#Code to prove it:
+import random
+
+b = random.randint(1,101)
+print("input number: ", b)
+loopCycle = 0
+
+while (b != 4):
+    c = list(str(b))
+    sumSquare = 0
+    for i in range(len(c)):
+        d = int(c[i])
+        sumSquare += d * d 
+    print("Node", loopCycle + 1, ": ", sumSquare)
+    b = sumSquare
+    loopCycle += 1
+    if (loopCycle > 50):
+        break
